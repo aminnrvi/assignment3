@@ -2,7 +2,6 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        // Test MyHashTable
         MyHashTable<MyTestingClass, String> table = new MyHashTable<>();
         Random rand = new Random();
 
@@ -13,7 +12,6 @@ public class Main {
             table.put(key, "Value" + i);
         }
 
-        // Test BST
         BST<Integer, String> tree = new BST<>();
         tree.put(5, "five");
         tree.put(3, "three");
@@ -25,13 +23,11 @@ public class Main {
 
         System.out.println("BST Size: " + tree.size());
 
-        // Iterate through BST
         System.out.println("\nBST Contents:");
         for (BST<Integer, String>.Node node : tree.iterator()) {
             System.out.println("key is " + node.getKey() + " and value is " + node.getValue());
         }
 
-        // Test delete
         tree.delete(5);
         System.out.println("\nAfter deleting 5:");
         for (BST<Integer, String>.Node node : tree.iterator()) {
@@ -39,7 +35,6 @@ public class Main {
         }
         System.out.println("New size: " + tree.size());
 
-        // Print hash table distribution
         System.out.println("\nHashTable Distribution:");
         int[] distribution = table.getBucketDistribution();
         for (int i = 0; i < distribution.length; i++) {

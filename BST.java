@@ -77,7 +77,6 @@ public class BST<K extends Comparable<K>, V> {
         Node parent = null;
         Node current = root;
 
-        // Find the node to delete
         while (current != null && !current.key.equals(key)) {
             parent = current;
             int cmp = key.compareTo(current.key);
@@ -88,9 +87,8 @@ public class BST<K extends Comparable<K>, V> {
             }
         }
 
-        if (current == null) return; // Key not found
+        if (current == null) return;
 
-        // Case 1: Node has no children
         if (current.left == null && current.right == null) {
             if (parent == null) {
                 root = null;
@@ -101,7 +99,6 @@ public class BST<K extends Comparable<K>, V> {
             }
             size--;
         }
-        // Case 2: Node has one child
         else if (current.left == null) {
             if (parent == null) {
                 root = current.right;
@@ -121,7 +118,6 @@ public class BST<K extends Comparable<K>, V> {
             }
             size--;
         }
-        // Case 3: Node has two children
         else {
             Node successorParent = current;
             Node successor = current.right;
